@@ -1,1 +1,1 @@
-# CN322-Chatapp
+# CN322-SocialNetwork
