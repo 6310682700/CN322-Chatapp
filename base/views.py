@@ -13,6 +13,7 @@ from django.urls import reverse
 
 def index(request):
     if request.user.is_authenticated:
+<<<<<<< HEAD
         return render(request, 'index.html')
     else:
         return render(request, 'login.html')
@@ -34,3 +35,21 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+=======
+        return render(request, 'index')
+    else:
+        return HttpResponseRedirect(reverse('login'))
+
+def login_view(request):
+    # if request.method == "GET":
+        # username = request.POST['username']
+        # password = request.POST['password']
+        # user = authenticate(username=username, password=password)
+        # if user is not None:
+        #     login(request, user)
+        #     return HttpResponseRedirect(reverse('index'))
+        # else:
+        #     return render(request, 'index')
+
+        return render(request, 'login.html')
+>>>>>>> 7a124f7f399b74a43aaf91b1c8f9d76b65e12f91
