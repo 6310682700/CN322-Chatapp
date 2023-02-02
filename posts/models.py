@@ -1,8 +1,6 @@
 from django.db import models
 from base.models import WebUser
 
-# Create your models here.
-
 
 class Post(models.Model):
     author = models.ForeignKey(WebUser, on_delete=models.CASCADE)
