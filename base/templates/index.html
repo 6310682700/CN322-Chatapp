@@ -2,4 +2,26 @@
 
 {% block body %}
 
+<div class="container">
+    <form
+      method="POST"
+      enctype="multipart/form-data"
+      action="{% url 'posts' %}">
+      
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Post Description</label
+        >
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="3"
+          name="desc"
+        ></textarea>
+      </div>
+      <button type="submit" class="my-2 btn btn-primary">Post</button>
+    </form>
+  </div>
+
 {% endblock body %}
