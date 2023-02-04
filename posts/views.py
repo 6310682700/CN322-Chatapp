@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.models import WebUser
+from base.models import WebUser
 
 from .models import Post
 
@@ -7,7 +7,7 @@ from .models import Post
 def uploadpost(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
-            user = User.objects.get(username=request.user)
+            user = WebUser.objects.get(username=request.user)
             postdesc = request.POST['desc']
             posts = Post.objects.create(author=request.user, post_body = postdesc)
         return render(request,'index.html')
