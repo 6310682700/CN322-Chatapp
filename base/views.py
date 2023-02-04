@@ -5,19 +5,32 @@ from http.client import HTTPResponse
 from re import sub
 import re
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+
+from posts.models import Post
 
 # Create your views here.
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'index.html')
+        # user = User.objects.get(username=request.user)
+        # post = Post.objects.filter(author=user)
+        post = Post.objects.all()
+        print(post)
+        return render(request, 'index.html', {
+            # 'user': user,
+            'posts': post,
+        })
     else:
         return HttpResponseRedirect(reverse('login'))
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('index'))
+
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
