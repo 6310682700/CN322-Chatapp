@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -125,4 +126,10 @@ STATICFILES_DIRS = [
      BASE_DIR / "static"
  ]
 
-ASGI_APPLICATION = "SocialNetwork.routing.application" 
+ASGI_APPLICATION = "SocialNetwork.routing.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
