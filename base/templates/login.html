@@ -17,13 +17,16 @@
           <h1 class="logo">Fakebook</h1>
           <p>Connect with friends and the world around you on Facebook.</p>
         </div>
-          <form>
-            <input type="text" placeholder="Email or Phone Number" required />
-            <input type="password" placeholder="Password" required>
-            <button class="login">Log In</button>
+
+          <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Email or Phone Number" required />
+            <input type="password" name= "password" placeholder="Password" required>
+            <button class="login" type = "submit" >Log In</button>
             <hr>
             <button class="create-account">Create New Account</button>
           </form>
+
       </div>
     </div>
   </body>

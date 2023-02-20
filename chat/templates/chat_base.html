@@ -1,4 +1,6 @@
-//chatbase
+{% extends 'layout.html' %}
+
+{% block body %}
 
 <script>
     const chatSocket = new WebSocket(
@@ -9,3 +11,5 @@
         '/'
     );
 </script>
+
+{% endblock %}
