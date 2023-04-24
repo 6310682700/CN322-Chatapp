@@ -5,8 +5,7 @@
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="{% url 'chat_index' %}">Chat</a>
-  <a href=""{% url 'index' %}"">Post</a>
-  <a href="#">something</a>
+  <a href="{% url 'posts' %}">Post</a>
   <a href="{% url 'logout' %}">Logout</a>
 </div>
 
@@ -15,10 +14,12 @@
 <script>
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("content").style.width = "250px";
 }
 
 function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("mySidenav").style.width = "0px";
+  document.getElementById("content").style.width = "0px";
 }
 </script>
    
