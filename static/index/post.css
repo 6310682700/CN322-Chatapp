@@ -53,12 +53,12 @@ hr {
 .post__card {
     border: 1px solid rgba(128, 128, 128, 0.5);
     border-radius: 5px 5px 0 0;
-    width: fill-parent;	
+    width: 75%;	
     height: auto;
     background-color: #FFFFFF;
     position: relative;
     padding: 10px;
-    margin: 5px;
+    margin: auto;
     margin-bottom: 0;
 }
 
@@ -112,19 +112,6 @@ hr {
     font-weight: 400;
 }
 
-.post__reactions {
-    color: rgba(40, 0, 255, 0.9);
-    border: 1px solid rgba(128, 128, 128, 0.5);
-    border-top: 0;
-    border-radius: 0 0 5px 5px;
-    width: fill-parent;	
-    height: auto;
-    background-color: rgba(05, 0, 120, 0.1);;
-    position: relative;
-    padding: 10px;
-    margin: 0 5px 10px 5px;
-}
-
 textarea {
     display: block;
     margin-left: auto;
@@ -142,4 +129,5 @@ textarea {
     font-size: 12px;
     margin: 4px 2px;
     cursor: pointer;
+
 }
