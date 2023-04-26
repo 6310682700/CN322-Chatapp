@@ -6,8 +6,9 @@
 
 .body_margin {
     position :relative ;
-    margin-left: 20vh;
-    top: 8vh;
+    margin-left: 51vh;
+    padding-top: 5vh;
+    width: 100%;
 }
 
 .imessage {
@@ -224,4 +225,10 @@
     left: 20px;
     transform: translate(-30px, -2px);
     width: 10px;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
