@@ -16,12 +16,12 @@ from posts.models import Post
 
 def index(request):
     if request.user.is_authenticated:
-        # user = User.objects.get(username=request.user)
+        user = User.objects.get(username=request.user)
         # post = Post.objects.filter(author=user)
         post = Post.objects.all()
         print(post)
         return render(request, 'index.html', {
-            # 'user': user,
+            'user': user,
             'posts': post,
         })
     else:

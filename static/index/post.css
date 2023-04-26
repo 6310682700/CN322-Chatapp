@@ -43,11 +43,11 @@ hr {
     outline: none;
 }
 
-.post__button {
+.my-2btnbtn-primary {
     color: white;
-    margin: 0 10px 0 10px;
     background-color: #365899;
     transition: all 0.15s ease-in;
+    margin-left: 10px ;
 }
 
 .post__card {
@@ -129,5 +129,10 @@ textarea {
     font-size: 12px;
     margin: 4px 2px;
     cursor: pointer;
+}
 
+h1{
+    text-align: center;
+    font-size: 48px;
+    color: #365899;
 }
