@@ -11,9 +11,11 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'index/chatroom.css' %}" type = "text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
   </head>
   
-  <body>
+  <body style = "background-color: #FDFDFD;">
     
     <h1 class = "center" style = "text-align : center ; padding-top : 8vh "> chatroom : {{room_name}} </h1><hr style="width:50% ;" class = "center">
 
@@ -22,14 +24,16 @@
         <textarea id="chat-text" cols="80" rows="30" disabled class = "bubble" style = "width: 50% ; font-size : 23px ; height : 60%"></textarea><br>
               
 
-        <input id="input" type="text" size="80" style = "margin-top : 20px; width : 95vh"> 
-        <input id="submit" type="button" value="Send" style = "margin-top : 20px ; width : 7.5vh">
+        <input id="input" type="text" size="80" style = "margin-top : 20px; width : 95vh ;border-radius: 8px;" placeholder="Type Message ..."> 
+        <input id="submit" type="button" value="Send" style = "margin-top : 20px ; width : 7.5vh ; border-radius: 12px; background-color : #2C6EE6 ; color : #fff ;" >
+
+
 
 
       <div id="user-hello"></div>
 
 
-      
+      {{user_username}}
 
       {{ room_name | json_script:"room-name" }}
       {{ request.user.username| json_script:"user_username" }}
@@ -65,10 +69,9 @@
         chatSocket.onmessage = function(e) {        
             const data = JSON.parse(e.data);
             console.log(data)
-            document.querySelector('#chat-text').value += (<h1> + data.username + ": " + data.message + '\n' + </h1>)
-            {% comment %} document.write('<h1>Print this after the script tag</h1>'); {% endcomment %}
+            document.querySelector('#chat-text').value += (data.username + ": " + data.message + '\n')
         }
-
+    
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
