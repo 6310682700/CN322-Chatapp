@@ -9,20 +9,42 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from cryptography.fernet import Fernet, InvalidToken
+
+
 
 from posts.models import Post
 
 # Create your views here.
 
+key = b'1K_zeuLoLakuMS3ih38_6INKX7BPIKJDLLHT3XrG4yo='
+cipher_suite = Fernet(key)
+
+# Create your views here.
 def index(request):
     if request.user.is_authenticated:
         user = User.objects.get(username=request.user)
-        # post = Post.objects.filter(author=user)
         post = Post.objects.all()
-        print(post)
+        decrypted_posts = []
+
+        for p in post:
+            try:
+                decrypted_desc = cipher_suite.decrypt(p.post_body).decode()  # Decrypt the post description
+            except InvalidToken:
+                decrypted_desc = "Error decrypting post"
+
+            decrypted_posts.append({
+                'id': p.id,
+                'author': p.author,
+                'post_body': decrypted_desc,
+                'created_at':p.created_at,
+                'updated_at': p.updated_at,
+                'duplicate_post': p.duplicate_post
+            })
+
         return render(request, 'index.html', {
             'user': user,
-            'posts': post,
+            'posts': decrypted_posts,
         })
     else:
         return HttpResponseRedirect(reverse('login'))
