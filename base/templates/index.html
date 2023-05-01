@@ -54,7 +54,7 @@
             <form action="{% url 'delete_post' %}" method="post">
               {% csrf_token %}
               <input type="hidden" name="dupe" value="{{ post.duplicate_post }}">
-                <button name="desc" value="{{ post.post_body }}" type="Delete">delete</option>
+                <button name="desc" value="{{ post.id }}" type="Delete">delete</option>
           </form>
         </div>
       <hr />

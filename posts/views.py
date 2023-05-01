@@ -21,8 +21,8 @@ def uploadpost(request):
         postuser = User.objects.get(username=request.user)
         postdesc = request.POST['desc']
         encrypted_desc = cipher_suite.encrypt(postdesc.encode()).decode()  # Encrypt the post description
-        duplicate = len(Post.objects.filter(author=postuser, post_body=encrypted_desc))
-        posts = Post.objects.create(author=postuser, post_body=encrypted_desc, duplicate_post=duplicate)
+        # duplicate = len(Post.objects.filter(author=postuser, post_body=encrypted_desc))
+        posts = Post.objects.create(author=postuser, post_body=encrypted_desc)
     return HttpResponseRedirect(reverse('index'))
 
 def deletepost(request):
@@ -31,8 +31,9 @@ def deletepost(request):
 
     if request.method == 'POST':
         postuser = User.objects.get(username=request.user)
-        postdesc = request.POST['desc']
-        encrypted_desc = cipher_suite.encrypt(postdesc.encode())  # Encrypt the post description
-        postdupe = request.POST['dupe']
-        Post.delete(Post.objects.get(author=postuser, post_body=encrypted_desc, duplicate_post=postdupe))
+        postid = request.POST['desc']
+        # postdesc = request.POST['desc']
+        # encrypted_desc = cipher_suite.encrypt(postdesc.encode())  # Encrypt the post description
+        # postdupe = request.POST['dupe']
+        Post.delete(Post.objects.get(id=postid, author=postuser))
     return HttpResponseRedirect(reverse('index'))
