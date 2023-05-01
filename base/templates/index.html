@@ -50,13 +50,15 @@
         <div class="post__content">
           <p>{{post.post_body}}</p>
         </div>
+        {% if post.author == user %}        
           <div class="del">
             <form action="{% url 'delete_post' %}" method="post">
               {% csrf_token %}
-              <input type="hidden" name="dupe" value="{{ post.duplicate_post }}">
+              <input type="hidden" name="dupe" value="{{ post.duplicate_post }}">              
                 <button name="desc" value="{{ post.id }}" type="Delete">delete</option>
           </form>
         </div>
+        {% endif %}
       <hr />
     </div>
   {% endfor %}
