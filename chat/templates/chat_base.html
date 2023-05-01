@@ -1,37 +1,41 @@
 {% extends 'layout.html' %}
 
 {% block head %}
-  <style>
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
 
-    .button {
-      display: inline-block;
-      flex-basis: calc(33.333% - 20px);
-      padding: 20px;
-      font-size: 24px;
-      text-align: center;
-      text-decoration: none;
-      background-color: #B0E0E6; 
-      color: #000;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin: 10px 0;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      background-color: #A0D0D6;
-      border-color: #999;
-    }
-  </style>
 {% endblock %}
 
 {% block body %}
+<style>
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .button {
+    display: inline-block;
+    position : relative;
+    flex-basis: calc(33.333% - 20px);
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #B0E0E6; 
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 15vh;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top : 20px;
+  }
+
+  .button:hover {
+    background-color: #A0D0D6;
+    border-color: #999;
+  }
+</style>
+
 <script>
     const chatSocket = new WebSocket(
         'ws://' +
@@ -41,6 +45,8 @@
         '/'
     );
 </script>
+
+<br style = "padding-top : 20px">
 
 <div class="button-container">
   <a href="1" class="button">Room 1</a>
