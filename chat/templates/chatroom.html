@@ -25,6 +25,7 @@
         <textarea id="chat-text" cols="80" rows="30" disabled class = "bubble" style = "width: 50% ; font-size : 23px ; height : 60% ; background-color: #B3E3FF"></textarea><br>
               
 
+        <div style="padding-left: 25%;">{{username}}</div> <br>
         <input id="input" type="text" size="80" style = "margin-top : 20px; width : 95vh ;border-radius: 8px;" placeholder="Type Message ..."> 
         <input id="submit" type="button" value="Send" style = "margin-top : 20px ; width : 7.5vh ; border-radius: 12px; background-color : #3761FF ; color : #fff ;" >
 
@@ -32,9 +33,7 @@
 
 
       <div id="user-hello"></div>
-
-
-      {{user_username}}
+          
 
       {{ room_name | json_script:"room-name" }}
       {{ request.user.username| json_script:"user_username" }}

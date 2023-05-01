@@ -13,6 +13,7 @@ def index(request):
 def room(request, room_name):
     if request.user.is_authenticated:
         return render(request, 'chatroom.html', {
+            'username' : request.user.username,
             'room_name' : room_name
         })
     else:
