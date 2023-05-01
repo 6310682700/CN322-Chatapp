@@ -5,8 +5,8 @@
 }
 
 .body_margin {
+    text-align: center;
     position :relative ;
-    margin-left: 51vh;
     padding-top: 5vh;
     width: 100%;
 }
